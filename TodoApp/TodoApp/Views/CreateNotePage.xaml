@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TodoApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="TodoApp.Views.CreateNotePage">
+    
+    <ContentPage.BindingContext>
+        <local:CreateNoteViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label 
+            Text="Create Note" 
+            TextColor="White"
+            FontSize="Title"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Editor 
+                Grid.Row="0"
+                Placeholder="Enter Note Here !"
+                Text="{Binding TheNote}"/>
+
+            <Button 
+                Grid.Row="2" 
+                Grid.Column="0"
+                TextColor="Black"
+                BackgroundColor="LightGreen"
+                Text="Save Note"
+                CornerRadius="10" 
+                Margin="10"
+                Command="{Binding SaveNoteCommand}"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
